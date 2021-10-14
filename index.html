@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>SELEMENTOR 3.0</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1.0, user-scalable=no">
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<link rel="stylesheet" type="text/css" href="bootstrap/bootstrap.css">
+	<link rel="stylesheet" type="text/css" href="imagehover.min.css">
+	<script type="text/javascript" src="jquery.js"></script>
+	<script type="text/javascript" src="script.js"></script>
+    <script type="text/javascript" src="defaults.js"></script>
+</head>
+<body>
+
+<div class="base-container">
+	<div class="container-fluid">
+		<div class="row mh-85">
+			<div class="col-md-3 text-center">
+                <div id="tools-section">
+                    <ul>
+                        <li class="li-special" style="position: sticky; top: 0px; background-color: transparent; ">
+                            <img src="undo.svg" class="style-undo" onclick="undo();">
+                            <button class="style-reset" onclick="resetall();">reset</button>
+                            <img src="redo.svg" class="style-redo" onclick="redo();">
+                        </li>
+                        <li>
+                            <p class="tool-description">dimension</p>
+                            <input type="text" class="style-width" placeholder="50px" onchange="$(currentitem).css('width',$(this).val());">
+                            <input type="text" class="style-height" placeholder="50px" onchange="$(currentitem).css('height',$(this).val());">
+                        </li>
+                        <li>
+                            <p class="tool-description">position</p>
+                            <button class="style-static" onclick="updateitems('stc');$(currentitem).css('position','static');">stc</button>
+                            <button class="style-relative" onclick="updateitems('stc');$(currentitem).css('position','relative');">rlt</button>
+                            <button class="style-absolute" onclick="updateitems('stc');$(currentitem).css('position','absolute');">abs</button>
+                            <button class="style-fixed" onclick="updateitems('stc');$(currentitem).css('position','fixed');">fxd</button>
+                        </li>
+                        <li>
+                            <p class="tool-description">margin</p>
+                            <input type="text" class="style-margin" placeholder="5px" onchange="$(currentitem).css('margin',$(this).val());">
+                        </li>
+                        <li>
+                            <p class="tool-description">padding</p>
+                            <input type="text" class="style-padding" placeholder="5px" onchange="$(currentitem).css('padding',$(this).val());">
+                        </li>
+                        <li>
+                            <p class="tool-description">border</p>
+                            <input type="text" class="style-border" placeholder="5px solid black" onchange="$(currentitem).css('border',$(this).val());">
+                            <input type="range" min="1" max="50" id="style-bradius" onchange="$(currentitem).css('borderRadius',$(this).val()+'px');">
+                        </li>
+                        <li>
+                            <p class="tool-description">color</p>
+                            <input type="text" class="style-color" placeholder="black" onchange="$(currentitem).css('backgroundColor',$(this).val());">
+                            <input type="color" class="style-colors" onchange="$(currentitem).css('backgroundColor',$(this).val());">
+                        </li>
+                        <li>
+                            <p>your code</p>
+                            <input type="text" class="style-width" id="usrcd1" onchange="user_code();">
+                            <input type="text" class="style-height" id="usrcd2" onchange="user_code();">
+                        </li>
+                    </ul>
+                </div>
+            </div>
+			<div class="col-md-8">
+                <div class="box_container">
+                    <div class="boxitems" id="box1" onclick="create('h1',true)"></div>
+                    <div class="boxitems" id="box2" onclick="create('h2',true)"></div>
+                    <div class="boxitems" id="box3" onclick="create('h3',true)"></div>
+                    <div class="boxitems" id="box4" onclick="create('h4',true)"></div>
+                    <div class="boxitems" id="box5" onclick="create('h5',true)"></div>
+                    <div class="boxitems" id="box6" onclick="create('h6',true)"></div>
+                    <div class="boxitems" id="box7" onclick="create('a',true)"></div>
+                    <div class="boxitems" id="box8" onclick="create('label',true)"></div>
+                    <div class="boxitems" id="box9" onclick="create('p'true)"></div>
+                    <div class="boxitems" id="box10" onclick="create(9)"></div>
+                    <div class="boxitems" id="box11" onclick="create(10)"></div>
+                    <div class="boxitems" id="box12" onclick="create(11)"></div>
+                    <div class="boxitems" id="box13" onclick="create(12)"></div>
+                    <div class="boxitems" id="box14" onclick="create(13)"></div>
+                    <div class="boxitems" id="box15" onclick="create(14)"></div>
+                    <div class="boxitems" id="box16" onclick="create(15)"></div>
+                    <div class="boxitems" id="box17" onclick="create(16)"></div>
+                    <div class="boxitems" id="box18" onclick="create(17)"></div>
+                    <div class="boxitems" id="box19" onclick="create(18)"></div>
+                    <div class="boxitems" id="box20" onclick="create('input',false)"><span>input</span></div>
+                </div>
+				<div id="screen"></div>
+                <div id="newtab-view" onclick="newtabview();"></div>
+			</div>
+			<div class="col-md-1 text-center">
+				<div id="element-section">
+					<div class="myitems" onclick="create('div',false)">div</div>
+					<div class="myitems" onclick="create('span',true)">span</div>
+					<div class="myitems" onclick="create('img',false)">img</div>
+					<div class="myitems" onclick="create('p',true)">text</div>
+					<div class="myitems" onclick="create('button',false)">button</div>
+					<div class="myitems">card..</div>
+                    <div class="myitems">
+                        <img src="add.svg" class="toggle-allitems" id="allitems" alt=":::">
+                    </div>
+					<img src="settings.svg" class="toggle-settings" alt="@@@">
+					<button id="view-btn" onclick="viewall();">view</button>
+					<button id="save-btn" onclick="saveall();">save</button>
+                    <img src="viewall-green.svg" id="items-structure" onclick="show_structure();">
+				</div>
+			</div>
+		</div>
+		<div class="row mh-10">
+			<div class="col-12">
+				<div class="text-section">
+                    <input type="text" id="t_content" class="text-content" placeholder="text here" onchange="currentitem.textContent = $(this).val();">
+                    <input type="text" id="t_style" class="text-style" placeholder="sans-serif" onchange="$(currentitem).css('fontFamily',$(this).val());">
+                    <input type="text" id="t_color" class="text-color" placeholder="white" onchange="$(currentitem).css('color',$(this).val());">
+                    <input type="text" id="t_align" class="text-align" placeholder="left" onchange="$(currentitem).css('textAlign',$(this).val());">
+                    <input type="number" id="t_size" class="text-size" placeholder="18" onchange="$(currentitem).css('fontSize',$(this).val()+$('#t_unit').val()||'px');">
+                    <input type="text" id="t_unit" class="text-unit" placeholder="px" onchange="$(currentitem).css('fontSize',$('#t_size').val()+$(this).val());">
+                    <button class="text-bold" onclick="updateitems('bold');">B</button>
+                    <button class="text-italic" onclick="updateitems('italic');">I</button>
+                    <button class="text-underline" onclick="updateitems('underline');">U</button>
+                    <button class="text-upper" onclick="updateitems('upper');">i</button>
+                    <button class="text-lower" onclick="updateitems('lower');">!</button>
+        		</div>
+			</div>
+		</div>
+        <div class="settings-menu">
+            <div class="settings-color">
+                <p>color scheme</p>
+                <div class="rightfloat">
+                    <div class="c-scheme c-dark" onclick="setcolorscheme('dark');"></div>
+                    <div class="c-scheme c-bright" onclick="setcolorscheme('bright');"></div>
+                    <div class="c-scheme c-light" onclick="setcolorscheme('light');"></div>
+                </div>
+            </div>
+            <div class="settings-color">
+                <p>set contrast</p>
+                <input type="range" class="mycontrast" min="1" max="100" onchange="setcontrast($(this).val());">
+            </div>
+            <div class="container text-center">
+                <button class="btn btn-danger" onclick="setcolorscheme('dark');">restore</button>
+            </div>
+        </div>
+        <div id="mymodal">saved successfully !</div>
+        <div id="my_sidebar" style="/*display: block;*/">
+            <img src="close.svg" class="close-btn" onclick="$('#my_sidebar').toggle();">
+            <div class="container">
+                <div class="row">
+                    <div class="col text-center">screen</div>
+                </div>
+            </div>
+        </div>
+	</div>
+</div>
+</body>
+</html>

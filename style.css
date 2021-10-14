@@ -1,0 +1,520 @@
+/* stylesheet for selementor 3.0 by __sadi 25-3-2020 */
+
+
+/*-------------- COMMON RULES ----------------*/
+
+* {
+    box-sizing: border-box;
+}
+
+html,body {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background-color: black !important;
+}
+
+.base-container {
+    position: fixed;
+    top: 1%;
+    right: 1%;
+    bottom: 1%;
+    left: 1%;
+    width: 98%; 
+    height: 98%;
+    border: none;
+    background-color: rgba(82, 72, 72, 0.9);
+    border-radius: 30px;
+    color: white;
+    padding: 10px 15px;
+    overflow: hidden;
+}
+
+#screen > * {
+    transition: 0.27s;
+    z-index: 100;
+    position: static;
+}
+
+.rightfloat { float: right; margin: auto;}
+.myrowflex { display: flex; align-items: center; justify-content: center; }
+.mh-85 { max-height: 85vh; }
+.mh-10 { max-height: 10vh; }
+.c-dark { background-color: brown; }
+.c-bright { background-color: wheat; }
+.c-light { background-color: skyblue; }
+.fixmargin {}
+
+/*---------------JSCRIPT CLASS--------------------*/
+
+.active {
+    background-color: cornflowerblue !important;
+    color: cyan !important;
+}
+
+.t-bold { font-weight: bold; }
+.t-italic { font-style: italic; }
+.t-underline { text-decoration: underline; }
+.t-upper { text-transform: uppercase;text-align: center; }
+.t-lower { text-transform: lowercase; }
+
+/*---------------TOOLS SECTION--------------------*/
+
+#tools-section {
+    /*width: 100%;*/
+    height: 84vh;
+    padding-top: 1.6vh;
+    border-radius: 20px;
+    background-color: rgba(128,128,128,1);
+    overflow-x: scroll;
+    border: 1.4px solid black;
+    border-bottom: 8px solid black;
+    transition: 0.44s;
+    /*transform: scale(1.020);*/
+}
+
+/*hides default scrollbars in chrome*/
+#tools-section::-webkit-scrollbar {
+    display: none;
+}
+
+#tools-section > ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+#tools-section > ul li {
+    width: 94%;
+    margin: 8px auto;
+    border-radius: 10px;
+    background-color: rgb(70, 47, 47);
+}
+
+p.tool-description {
+    position: relative;
+    text-align: center;
+    margin: 0 auto;
+    padding: 0;
+    font-family: segoe ui;
+    font-size: 14px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+}
+
+.style-width, .style-height {
+    width: 44%;
+    height: 40px;
+    margin: 2vh 0.4vh;
+    border: none;
+    border-radius: 5px;
+    background-color: rgba(156, 65, 65, 0.87);
+    text-align: center;
+    color: cyan;
+    font-size: 1rem;
+}
+
+.style-static, .style-relative, .style-absolute, .style-fixed {
+    position: relative;
+    width: 20%;
+    height: 40px;
+    margin: 2vh auto;
+    border: none;
+    border-radius: 4px;
+    background-color: rgba(156, 65, 65, 0.87);
+    text-align: center;
+    color: grey;
+    text-transform: uppercase;
+    font-size: 1rem;
+}
+
+.style-margin, .style-padding, .style-border, .style-color, .style-colors {
+    position: relative;
+    width: 90%;
+    height: 40px;
+    margin: 2vh auto;
+    border: none;
+    border-radius: 5px;
+    background-color: rgba(156, 65, 65, 0.87);
+    text-align: center;
+    color: cyan;
+    font-size: 1rem;
+}
+
+#style-bradius {
+    position: relative;
+    width: 80%;
+    margin: 8px auto 12px auto;
+}
+
+.style-reset {
+    position: relative;
+    width: 60%;
+    height: 40px;
+    border: none;
+    border-radius: 5px;
+    background-color: rgba(156, 65, 65, 0.87);
+    text-align: center;
+    color: white;
+    font-size: 18px;
+    font-family: segoe ui, sans-serif;
+    text-transform: uppercase;
+    z-index: 99;
+    transition: 0.099s;
+}
+
+.style-reset:hover { background-color: red; }
+
+.style-undo, .style-redo {
+    position: relative;
+    width: 20%;
+    height: 40px;
+    border-radius: 5px;
+    background: transparent;
+    z-index: 99;
+    transition: 0.099s;
+}
+
+.style-undo {
+    float: left;
+}
+
+.style-redo {
+    float: right;
+}
+
+.style-undo:hover, .style-redo:hover {
+    background-color: black;
+}
+
+
+/*---------------SCREEN SECTION-------------------*/
+
+#screen {
+    border-radius: 30px;
+    background-color: rgba(146, 122, 122, 0.308);
+    border-top: 10px solid olive;
+    overflow: hidden;
+    border-bottom: 10px solid olive;
+    height: 84vh;
+    /*z-index: 99*/
+}
+
+/*---------------ELEMENT SECTION------------------*/
+
+#element-section {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    padding-top: 10px;
+    /* border: 1px solid white; */
+}
+
+.myitems {
+    width: 100%;
+    height: auto;
+    margin-top: 4px;
+    line-height: 50px;
+    text-transform: uppercase;
+    transition: 0.23s;
+    color: darkgrey;
+    font-family: sans-serif;
+    border-radius: 8px;
+    border: 2px solid grey;
+    background-color: black;
+    text-align: center;
+}
+
+.myitems:hover {
+    background-color: cornsilk;
+    color: black;
+    transform: scale(0.9);
+}
+
+#save-btn, #view-btn {
+    width: 100%;
+    height: 64px;
+    border-radius: 10px;
+    font-family: impact;
+    font-size: 20px;
+    letter-spacing: 0.4px;
+    text-align: center;
+    text-transform: uppercase;
+    color: white;
+    transition: 0.3s;
+    margin-top: 10px;
+    /*line-height: 60px;*/
+}
+
+#save-btn {
+    background-color: red;
+    border: 4px solid rgb(230, 8, 8);
+}
+
+#save-btn:hover {
+    color: red;
+    background-color: rgba(236, 167, 167, 0.671);
+}
+
+#view-btn {
+    background-color: turquoise;
+    border: 4px solid green;
+}
+
+#view-btn:hover {
+    color: turquoise;
+    background-color: rgba(198, 230, 200, 0.589);
+}
+
+.toggle-allitems, .toggle-settings {
+    max-width: 70%;
+    height: auto;
+    transition: 0.23s;
+}
+
+.toggle-settings {
+    transition: 1.3s;
+}
+
+.toggle-settings:hover {
+    transform: rotate(180deg);
+}
+
+/*----------------TEXT SECTON-----------------*/
+
+.text-section {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 9vh;
+    margin-top: 1.3vh;
+    padding-left: 10px;
+    border-radius: 30px;
+    background-color: rgba(165, 42, 42, 1);/*0.431*/
+    border-right: 10px solid olive;
+    border-left: 10px solid olive;
+    transition: 0.44s;
+    overflow: hidden;
+}
+
+.text-section > * {
+    border: none;
+    outline: none;
+    color: white;
+    background-color: rgb(50, 57, 67);
+    text-transform: uppercase;
+    text-align: center;
+    font-size: larger;
+    border-radius: 20px;
+    margin: 10px;
+    margin-left: 0px;
+}
+
+.text-content, .text-style {
+    width: 20%;
+    height: 80%;
+}
+
+.text-color {
+    width: 15%;
+    height: 80%;
+    border-radius: 14px;
+}
+
+.text-align {
+    width: 10%;
+    height: 80%;
+    border-radius: 14px;
+    background-color: rgb(50, 57, 67);
+}
+
+.text-size {
+    width: 6%;
+    height: 80%;
+    border-radius: 14px;
+}
+
+.text-unit {
+    width: 4%;
+    height: 80%;
+    border-radius: 14px;
+}
+
+.text-bold, .text-italic, .text-underline {
+    width: 4%;
+    height: 80%;
+    border-radius: 14px;
+}
+
+.text-bold:hover, .text-italic:hover, .text-underline:hover {
+    color:cyan;
+}
+
+.text-upper, .text-lower {
+    width: 1.5%;
+    height: 80%;
+    border-radius: 14px;
+}
+
+.text-upper:hover, .text-lower:hover {
+    color:greenyellow;
+}
+
+/*---------------EXTRA MENUS------------------*/
+
+.animated-closebtn {
+    background-image: url(close.svg);
+    transform: rotate(90deg);
+}
+
+.settings-menu {
+    position: absolute;
+    top: 0%;
+    left: 37.25%;
+    display: block;
+    width: 25%;
+    height: 20%;
+    margin: 10px;
+    padding: auto;
+    border-radius: 20px;
+    background-color: grey;
+    opacity: 0;
+    overflow: hidden;
+    visibility: hidden;
+    transition: 0.4s;
+    border: 2px solid black;
+    border-bottom: 4px solid black;
+}
+
+.settings-color {
+    width: 90%;
+    margin: 2vh auto 0 auto;
+}
+
+.settings-color > p {
+    display: inline-block;
+    font-size: 1.1rem;
+    font-family: impact;
+    text-transform: uppercase;
+    color: lightgrey;
+}
+
+.c-scheme {
+    display: inline-block !important;
+    width: 4vh;
+    height: 4vh;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+.mycontrast {
+    margin: 8px;
+    float: right;
+}
+
+.show-hide-settings {
+    top:7%;
+    opacity:0.87;
+    visibility: visible;
+    transform: scale(1.20);
+}
+
+.box_container {
+    position: absolute;
+    display: none;
+    width: 60%;
+    height: 50%;
+    left: 20%;
+    top: 15%;
+    padding: 10px;
+    border-radius: 14px;
+    overflow-y: scroll;
+    border: 4px solid darkgrey;
+    background: transparent;
+    z-index: 19;
+}
+
+.boxitems {
+    display: inline-block;
+    border: 2px solid grey;
+    position: relative;
+    border-radius: 4px;
+    margin: 4px;
+    width: 22%;
+    height: 40%;
+    transition: 0.2s;
+    z-index: 1;
+}
+
+.boxitems:hover {
+    border: 2px solid brown;
+}
+
+#newtab-view {
+    position: relative;
+    background-color: red;
+    padding: 2px;
+    border-radius: 50%;
+    width: 1vh;
+    height: 1vh;
+}
+
+#newtab-view:hover { background-color: brown }
+
+#mymodal {
+    display: none;
+    position: absolute;
+    width: 40%;
+    left: 30%;
+    height: 80px;
+    line-height: 2.7;
+    text-align: center;
+    padding: 10px 20px;
+    background-color: rgba(0,125,0,0.5);
+    top: 3vh;
+}
+
+#items-structure {
+    width: 40%;
+    height: auto;
+}
+
+#items-structure:hover {}
+
+#my_sidebar {
+    position: absolute;
+    display: none;
+    width: 30vh;
+    border: 3px solid white;
+    background-color: rgba(128,128,128,0.943);
+    border-right: none;
+    height: 100%;
+    right: 0;
+    top: 0;
+    bottom: 0;
+}
+
+.close-btn {
+    width: 1cm;
+    height: auto;
+    transform: rotate(45deg);
+}
+
+#box1 {background-image: url('h1.png');background-size: cover;}
+#box2 {background-image: url('h2.png');background-size: cover;}
+#box3 {background-image: url('h3.png');background-size: cover;}
+#box4 {background-image: url('h4.png');background-size: cover;}
+#box5 {background-image: url('h5.png');background-size: cover;}
+#box6 {background-image: url('h6.png');background-size: cover;}
+
+/*@media screen and (max-width: 764px) {
+    .myitems {}
