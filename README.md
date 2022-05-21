@@ -1,3 +1,6 @@
+
+https://sadi-1010011.github.io/selementor
+
 # selementor
 web editor for web beginners. incomplete project though, uploading anyways.
 
@@ -8,3 +11,5 @@ first approach using bootstrap, there are many panels and controls which can onl
 used in larger screens.
 
 check it out ..
+
+let me know, if u like this project.
